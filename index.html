@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kodak Hotshots - Capture the Moment</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Bebas Neue and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* globals.css content */
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Inter:wght@400;500;600&display=swap');
+
+        @custom-variant dark (&:is(.dark *));
+
+        :root {
+            --font-size: 14px;
+            --background: #ffffff;
+            --foreground: oklch(0.145 0 0);
+            --card: #ffffff;
+            --card-foreground: oklch(0.145 0 0);
+            --popover: oklch(1 0 0);
+            --popover-foreground: oklch(0.145 0 0);
+            --primary: #030213;
+            --primary-foreground: oklch(1 0 0);
+            --secondary: oklch(0.95 0.0058 264.53);
+            --secondary-foreground: #030213;
+            --muted: #ececf0;
+            --muted-foreground: #717182;
+            --accent: #e9ebef;
+            --accent-foreground: #030213;
+            --destructive: #d4183d;
+            --destructive-foreground: #ffffff;
+            --border: rgba(0, 0, 0, 0.1);
+            --input: transparent;
+            --input-background: #f3f3f5;
+            --switch-background: #cbced4;
+            --font-weight-medium: 500;
+            --font-weight-normal: 400;
+            --ring: oklch(0.708 0 0);
+            --chart-1: oklch(0.646 0.222 41.116);
+            --chart-2: oklch(0.6 0.118 184.704);
+            --chart-3: oklch(0.398 0.07 227.392);
+            --chart-4: oklch(0.828 0.189 84.429);
+            --chart-5: oklch(0.769 0.188 70.08);
+            --radius: 0.625rem;
+            --sidebar: oklch(0.985 0 0);
+            --sidebar-foreground: oklch(0.145 0 0);
+            --sidebar-primary: #030213;
+            --sidebar-primary-foreground: oklch(0.985 0 0);
+            --sidebar-accent: oklch(0.97 0 0);
+            --sidebar-accent-foreground: oklch(0.205 0 0);
+            --sidebar-border: oklch(0.922 0 0);
+            --sidebar-ring: oklch(0.708 0 0);
+
+            /* Cinematic Photography Theme Colors */
+            --bg-primary: #121212;
+            --bg-secondary: #1E1E1E;
+            --accent-primary: #C5A47E;
+            --accent-hover: #B5946E;
+            --text-primary: #EAEAEA;
+            --text-secondary: #A0A0A0;
+            --borders: #333333;
+        }
+
+        .dark {
+            --background: oklch(0.145 0 0);
+            --foreground: oklch(0.985 0 0);
+            --card: oklch(0.145 0 0);
+            --card-foreground: oklch(0.985 0 0);
+            --popover: oklch(0.145 0 0);
+            --popover-foreground: oklch(0.985 0 0);
+            --primary: oklch(0.985 0 0);
+            --primary-foreground: oklch(0.205 0 0);
+            --secondary: oklch(0.269 0 0);
+            --secondary-foreground: oklch(0.985 0 0);
+            --muted: oklch(0.269 0 0);
+            --muted-foreground: oklch(0.708 0 0);
+            --accent: oklch(0.269 0 0);
+            --accent-foreground: oklch(0.985 0 0);
+            --destructive: oklch(0.396 0.141 25.723);
+            --destructive-foreground: oklch(0.637 0.237 25.331);
+            --border: oklch(0.269 0 0);
+            --input: oklch(0.269 0 0);
+            --ring: oklch(0.439 0 0);
+            --font-weight-medium: 500;
+            --font-weight-normal: 400;
+            --chart-1: oklch(0.488 0.243 264.376);
+            --chart-2: oklch(0.696 0.17 162.48);
+            --chart-3: oklch(0.769 0.188 70.08);
+            --chart-4: oklch(0.627 0.265 303.9);
+            --chart-5: oklch(0.645 0.246 16.439);
+            --sidebar: oklch(0.205 0 0);
+            --sidebar-foreground: oklch(0.985 0 0);
+            --sidebar-primary: oklch(0.488 0.243 264.376);
+            --sidebar-primary-foreground: oklch(0.985 0 0);
+            --sidebar-accent: oklch(0.269 0 0);
+            --sidebar-accent-foreground: oklch(0.985 0 0);
+            --sidebar-border: oklch(0.269 0 0);
+            --sidebar-ring: oklch(0.439 0 0);
+        }
+
+        @theme inline {
+            --color-background: var(--background);
+            --color-foreground: var(--foreground);
+            --color-card: var(--card);
+            --color-card-foreground: var(--card-foreground);
+            --color-popover: var(--popover);
+            --color-popover-foreground: var(--popover-foreground);
+            --color-primary: var(--primary);
+            --color-primary-foreground: var(--primary-foreground);
+            --color-secondary: var(--secondary);
+            --color-secondary-foreground: var(--secondary-foreground);
+            --color-muted: var(--muted);
+            --color-muted-foreground: var(--muted-foreground);
+            --color-accent: var(--accent);
+            --color-accent-foreground: var(--accent-foreground);
+            --color-destructive: var(--destructive);
+            --color-destructive-foreground: var(--destructive-foreground);
+            --color-border: var(--border);
+            --color-input: var(--input);
+            --color-input-background: var(--input-background);
+            --color-switch-background: var(--switch-background);
+            --color-ring: var(--ring);
+            --color-chart-1: var(--chart-1);
+            --color-chart-2: var(--chart-2);
+            --color-chart-3: var(--chart-3);
+            --color-chart-4: var(--chart-4);
+            --color-chart-5: var(--chart-5);
+            --radius-sm: calc(var(--radius) - 4px);
+            --radius-md: calc(var(--radius) - 2px);
+            --radius-lg: var(--radius);
+            --radius-xl: calc(var(--radius) + 4px);
+            --color-sidebar: var(--sidebar);
+            --color-sidebar-foreground: var(--sidebar-foreground);
+            --color-sidebar-primary: var(--sidebar-primary);
+            --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+            --color-sidebar-accent: var(--sidebar-accent);
+            --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+            --color-sidebar-border: var(--sidebar-border);
+            --color-sidebar-ring: var(--sidebar-ring);
+
+            /* Cinematic Photography Theme */
+            --color-bg-primary: var(--bg-primary);
+            --color-bg-secondary: var(--bg-secondary);
+            --color-accent-primary: var(--accent-primary);
+            --color-accent-hover: var(--accent-hover);
+            --color-text-primary: var(--text-primary);
+            --color-text-secondary: var(--text-secondary);
+            --color-borders: var(--borders);
+        }
+
+        @layer base {
+            * {
+                @apply border-border outline-ring/50;
+            }
+
+            body {
+                @apply bg-background text-foreground;
+                font-family: 'Inter', sans-serif;
+            }
+
+            .cinematic-body {
+                background-color: var(--bg-primary);
+                color: var(--text-primary);
+                font-family: 'Inter', sans-serif;
+            }
+
+            .cinematic-heading {
+                font-family: 'Bebas Neue', sans-serif;
+                text-transform: uppercase;
+                letter-spacing: 0.02em;
+            }
+        }
+
+        /**
+         * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+         */
+        @layer base {
+            :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+                h1 {
+                    font-size: var(--text-2xl);
+                    font-weight: var(--font-weight-medium);
+                    line-height: 1.5;
+                }
+
+                h2 {
+                    font-size: var(--text-xl);
+                    font-weight: var(--font-weight-medium);
+                    line-height: 1.5;
+                }
+
+                h3 {
+                    font-size: var(--text-lg);
+                    font-weight: var(--font-weight-medium);
+                    line-height: 1.5;
+                }
+
+                h4 {
+                    font-size: var(--text-base);
+                    font-weight: var(--font-weight-medium);
+                    line-height: 1.5;
+                }
+
+                p {
+                    font-size: var(--text-base);
+                    font-weight: var(--font-weight-normal);
+                    line-height: 1.5;
+                }
+
+                label {
+                    font-size: var(--text-base);
+                    font-weight: var(--font-weight-medium);
+                    line-height: 1.5;
+                }
+
+                button {
+                    font-size: var(--text-base);
+                    font-weight: var(--font-weight-medium);
+                    line-height: 1.5;
+                }
+
+                input {
+                    font-size: var(--text-base);
+                    font-weight: var(--font-weight-normal);
+                    line-height: 1.5;
+                }
+            }
+        }
+
+        html {
+            font-size: var(--font-size);
+        }
+
+        /* Custom Typography Classes for Cinematic Theme */
+        .text-hero {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 120px;
+            font-weight: 400;
+            text-transform: uppercase;
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+        }
+
+        .text-section-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 56px;
+            font-weight: 400;
+            text-transform: uppercase;
+            line-height: 1.2;
+            letter-spacing: 0.02em;
+        }
+
+        .text-card-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            font-weight: 400;
+            text-transform: uppercase;
+            line-height: 1.3;
+            letter-spacing: 0.02em;
+        }
+
+        .text-body {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .text-button {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .text-small {
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            .text-hero {
+                font-size: 60px;
+            }
+            
+            .text-section-heading {
+                font-size: 36px;
+            }
+            
+            .text-card-title {
+                font-size: 20px;
+            }
+        }
+
+        /* Custom Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close-button:hover {
+            color: var(--accent-primary);
+        }
+    </style>
+</head>
+<body class="cinematic-body">
+    <div class="min-h-screen">
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img id="hero-image" src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=1440&h=900&fit=crop" alt="Cinematic photography hero" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+            </div>
+            
+            <div class="relative z-10 text-center px-8 max-w-4xl mx-auto">
+                <h1 class="text-hero text-[var(--text-primary)] mb-6">
+                    CAPTURE THE MOMENT
+                </h1>
+                <p class="text-body text-[var(--text-secondary)] mb-8 max-w-2xl mx-auto">
+                    Premium photography for unforgettable memories and professional needs.
+                </p>
+                <button id="book-session-button" class="text-button px-8 py-4 rounded-lg transition-all duration-300 border-2 bg-[var(--accent-primary)] text-[var(--bg-primary)] border-[var(--accent-primary)] hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:shadow-lg hover:shadow-[var(--accent-primary)]/20">
+                    BOOK A SESSION
+                </button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-24 px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1">
+                        <img id="about-image" src="about kodak.jpg" alt="Professional studio setup" class="w-full h-full object-cover rounded-2xl" />
+                    </div>
+                    
+                    <div class="order-1 md:order-2">
+                        <h2 class="text-section-heading text-[var(--text-primary)] mb-8">
+                            THE ART OF VISION
+                        </h2>
+                        <p class="text-body text-[var(--text-secondary)] mb-8">
+                            At Kodak Hotshots, we blend technical mastery with artistic vision. We are a collective of elite photographers dedicated to producing cinematic, high-impact imagery that tells your story with unparalleled quality and style.
+                        </p>
+                        
+                        <ul class="space-y-4" id="about-features">
+                            <!-- Features will be dynamically inserted here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-24 px-8 bg-[var(--bg-secondary)]">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-section-heading text-[var(--text-primary)] text-center mb-16">
+                    OUR SIGNATURE SERVICES
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="services-grid">
+                    <!-- Service cards will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Work Section -->
+        <section class="py-24 px-8">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-section-heading text-[var(--text-primary)] text-center mb-16">
+                    FEATURED WORK
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]" id="gallery-grid">
+                    <!-- Gallery images and testimonials will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment & Partners Section -->
+        <section class="py-24 px-8 bg-[var(--bg-secondary)]">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-section-heading text-[var(--text-primary)] text-center mb-16">
+                    EQUIPMENT &amp; PARTNERS
+                </h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center" id="equipment-brands">
+                    <!-- Equipment brand logos will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="py-16 px-8 border-t border-[var(--borders)]">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-12 mb-12">
+                    <div>
+                        <h3 class="text-card-title text-[var(--text-primary)] mb-6">Contact Info</h3>
+                        <div class="space-y-3 text-small text-[var(--text-secondary)]">
+                            <div class="flex items-center space-x-3">
+                                <!-- MessageCircle icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[var(--accent-primary)]"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                                <span>WhatsApp: +2348033132953</span>
+                            </div>
+                            <p>hello@kodakhotshots.com</p>
+                            <p>14 Idowu Martins Street<br />Victoria Island, 4th Floor<br />Mega Plaza Shopping Mall<br />Lagos, Nigeria</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-card-title text-[var(--text-primary)] mb-6">Business Hours</h3>
+                        <div class="space-y-3 text-small text-[var(--text-secondary)]">
+                            <p>Monday - Friday: 9AM - 7PM</p>
+                            <p>Saturday: 10AM - 5PM</p>
+                            <p>Sunday: By Appointment</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-card-title text-[var(--text-primary)] mb-6">Follow Us</h3>
+                        <div class="flex space-x-6">
+                            <!-- Instagram icon SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            <!-- Camera icon SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                            <!-- Linkedin icon SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-[var(--borders)] pt-8">
+                    <p class="text-center text-small text-[var(--text-secondary)]">
+                        © 2024 Kodak Hotshots. All rights reserved. Capturing moments, creating art.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Custom Modal HTML -->
+    <div id="custom-modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close-button" class="modal-close-button">&times;</button>
+            <h3 id="modal-title" class="text-card-title text-[var(--text-primary)] mb-4"></h3>
+            <p id="modal-message" class="text-body text-[var(--text-secondary)]"></p>
+        </div>
+    </div>
+
+    <script type="module">
+        // Utility function to combine class names (simplified version of `cn` from utils.ts)
+        function cn(...inputs) {
+            return inputs.filter(Boolean).join(' ');
+        }
+
+        // ImageWithFallback logic (adapted from ImageWithFallback.tsx)
+        const ERROR_IMG_SRC = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzLjciPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iNiIvPjxwYXRoIGQ9Im0xNiA1OCAxNi0xOCAzMiAzMiIvPjxjaXJjbGUgY3g9IjUzIiBjeT0iMzUiIHI9IjciLz48L3N2Zz4KCg==';
+
+        /**
+         * Handles image loading with a fallback for errors.
+         * @param {HTMLImageElement} imgElement - The image element to apply the fallback to.
+         * @param {string} originalSrc - The original source URL of the image.
+         */
+        function applyImageWithFallback(imgElement, originalSrc) {
+            imgElement.src = originalSrc;
+            imgElement.onerror = () => {
+                imgElement.src = ERROR_IMG_SRC;
+                imgElement.alt = "Error loading image";
+                // Optionally, you can add a data attribute to keep the original URL
+                imgElement.dataset.originalUrl = originalSrc;
+            };
+        }
+
+        // Data arrays (from App.tsx)
+        const services = [
+            {
+                name: "Exclusive Event Coverage",
+                image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop"
+            },
+            {
+                name: "Elite Passport Photography",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
+            },
+            {
+                name: "Luxe Studio Portraits",
+                image: "https://images.unsplash.com/photo-1494790108755-2616c0763d84?w=800&h=600&fit=crop"
+            },
+            {
+                name: "Premium Framing Creations",
+                image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=600&fit=crop"
+            },
+            {
+                name: "Masterclass Photography Training",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
+            },
+            {
+                name: "Deluxe Photo Book Binding",
+                image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop"
+            },
+            {
+                name: "High-Quality Document Printing",
+                image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=600&fit=crop"
+            },
+            {
+                name: "Professional Photocopy Services",
+                image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop"
+            }
+        ];
+
+        const galleryImages = [
+            "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=600&fit=crop",
+            "https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=400&h=500&fit=crop",
+            "https://images.unsplash.com/photo-1520637836862-4d197d17c91a?w=400&h=400&fit=crop",
+            "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=600&fit=crop",
+            "https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=400&h=500&fit=crop",
+            "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=400&h=400&fit=crop"
+        ];
+
+        const equipmentBrands = [
+            {
+                name: "Canon",
+                logo: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=200&h=100&fit=crop"
+            },
+            {
+                name: "Sony",
+                logo: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=200&h=100&fit=crop"
+            },
+            {
+                name: "Profoto",
+                logo: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=200&h=100&fit=crop"
+            },
+            {
+                name: "Hasselblad",
+                logo: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=100&fit=crop"
+            },
+            {
+                name: "Leica",
+                logo: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=200&h=100&fit=crop"
+            }
+        ];
+
+        // Function to create an icon list item (adapted from App.tsx)
+        function createFeatureListItem(iconSvg, text) {
+            const li = document.createElement('li');
+            li.className = "flex items-center space-x-4";
+            li.innerHTML = `
+                ${iconSvg}
+                <span class="text-body text-[var(--text-secondary)]">${text}</span>
+            `;
+            return li;
+        }
+
+        // Function to create a ServiceCard (adapted from ServiceCard.tsx)
+        function createServiceCard(serviceName, imageUrl) {
+            const div = document.createElement('div');
+            div.className = "group cursor-pointer";
+            div.innerHTML = `
+                <div class="bg-[var(--bg-secondary)] rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--accent-primary)]/10 hover:scale-105">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="" alt="${serviceName}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 service-card-image" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-card-title text-[var(--text-primary)] text-center">
+                            ${serviceName}
+                        </h3>
+                    </div>
+                </div>
+            `;
+            const imgElement = div.querySelector('.service-card-image');
+            if (imgElement) {
+                applyImageWithFallback(imgElement, imageUrl);
+            }
+            return div;
+        }
+
+        // Function to create an equipment brand logo item
+        function createEquipmentBrandItem(brandName, logoUrl) {
+            const div = document.createElement('div');
+            div.className = "flex flex-col items-center space-y-4 group";
+            div.innerHTML = `
+                <div class="w-32 h-20 bg-[var(--bg-primary)] rounded-lg p-4 flex items-center justify-center overflow-hidden group-hover:bg-[var(--borders)] transition-colors duration-300">
+                    <img src="" alt="${brandName} logo" class="w-full h-full object-contain filter grayscale opacity-60 group-hover:opacity-80 transition-opacity duration-300 equipment-logo" />
+                </div>
+                <span class="text-small text-[var(--text-secondary)] group-hover:text-[var(--accent-primary)] transition-colors duration-300">
+                    ${brandName}
+                </span>
+            `;
+            const imgElement = div.querySelector('.equipment-logo');
+            if (imgElement) {
+                applyImageWithFallback(imgElement, logoUrl);
+            }
+            return div;
+        }
+
+        // Custom Modal Functions
+        const modalOverlay = document.getElementById('custom-modal-overlay');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalCloseButton = document.getElementById('modal-close-button');
+
+        function showModal(title, message) {
+            if (modalTitle && modalMessage && modalOverlay) {
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+                modalOverlay.classList.add('show');
+            }
+        }
+
+        function hideModal() {
+            if (modalOverlay) {
+                modalOverlay.classList.remove('show');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply fallback to hero image
+            const heroImage = document.getElementById('hero-image');
+            if (heroImage) {
+                applyImageWithFallback(heroImage, heroImage.src);
+            }
+
+            // Populate About Section Features
+            const aboutFeaturesList = document.getElementById('about-features');
+            if (aboutFeaturesList) {
+                const features = [
+                    { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--accent-primary)]"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>`, text: "State-of-the-Art Equipment" },
+                    { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--accent-primary)]"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`, text: "Masters of Light and Composition" },
+                    { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--accent-primary)]"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>`, text: "Bespoke Client Experience" },
+                    { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--accent-primary)]"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>`, text: "Award-Winning Creative Team" }
+                ];
+                features.forEach(feature => {
+                    aboutFeaturesList.appendChild(createFeatureListItem(feature.icon, feature.text));
+                });
+            }
+
+            // Apply fallback to about image
+            const aboutImage = document.getElementById('about-image');
+            if (aboutImage) {
+                // The src for the about image is now a local path
+                applyImageWithFallback(aboutImage, aboutImage.src);
+            }
+
+            // Populate Services Section
+            const servicesGrid = document.getElementById('services-grid');
+            if (servicesGrid) {
+                services.forEach(service => {
+                    servicesGrid.appendChild(createServiceCard(service.name, service.image));
+                });
+            }
+
+            // Populate Featured Work Section
+            const galleryGrid = document.getElementById('gallery-grid');
+            if (galleryGrid) {
+                galleryImages.forEach((image, index) => {
+                    const div = document.createElement('div');
+                    div.className = `relative overflow-hidden rounded-xl cursor-pointer group ${
+                        index === 1 || index === 4 ? 'row-span-2' : ''
+                    }`;
+                    div.innerHTML = `
+                        <img src="" alt="Featured work ${index + 1}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 gallery-image" />
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
+                    `;
+                    const imgElement = div.querySelector('.gallery-image');
+                    if (imgElement) {
+                        applyImageWithFallback(imgElement, image);
+                    }
+                    galleryGrid.appendChild(div);
+                });
+
+                // Add Testimonial Blocks
+                const testimonial1 = document.createElement('div');
+                testimonial1.className = "bg-[var(--bg-secondary)] p-8 rounded-xl row-span-1 flex flex-col justify-center";
+                testimonial1.innerHTML = `
+                    <p class="text-small text-[var(--text-secondary)] mb-4 italic">
+                        "The results were beyond professional; they were art. Kodak Hotshots captured the soul of our event."
+                    </p>
+                    <span class="text-small text-[var(--accent-primary)]">— Elite Client</span>
+                `;
+                galleryGrid.appendChild(testimonial1);
+
+                const testimonial2 = document.createElement('div');
+                testimonial2.className = "bg-[var(--bg-secondary)] p-8 rounded-xl row-span-1 flex flex-col justify-center";
+                testimonial2.innerHTML = `
+                    <p class="text-small text-[var(--text-secondary)] mb-4 italic">
+                        "Unmatched creativity and technical excellence. Every shot tells a story."
+                    </p>
+                    <span class="text-small text-[var(--accent-primary)]">— Creative Director</span>
+                `;
+                galleryGrid.appendChild(testimonial2);
+            }
+
+            // Populate Equipment & Partners Section
+            const equipmentBrandsContainer = document.getElementById('equipment-brands');
+            if (equipmentBrandsContainer) {
+                equipmentBrands.forEach(brand => {
+                    equipmentBrandsContainer.appendChild(createEquipmentBrandItem(brand.name, brand.logo));
+                });
+            }
+
+            // Add event listener to the "BOOK A SESSION" button
+            const bookSessionButton = document.getElementById('book-session-button');
+            if (bookSessionButton) {
+                bookSessionButton.addEventListener('click', () => {
+                    showModal('Booking Information', 'Thank you for your interest! Our booking system is currently under development. Please contact us directly via WhatsApp or email.');
+                });
+            }
+
+            // Add event listener for the modal close button
+            if (modalCloseButton) {
+                modalCloseButton.addEventListener('click', hideModal);
+            }
+
+            // Close modal when clicking outside of it
+            if (modalOverlay) {
+                modalOverlay.addEventListener('click', (event) => {
+                    if (event.target === modalOverlay) {
+                        hideModal();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
