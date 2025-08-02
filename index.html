@@ -411,8 +411,7 @@
                 <button id="book-session-button" class="text-button px-8 py-4 rounded-lg transition-all duration-300 border-2 bg-[var(--accent-primary)] text-[var(--bg-primary)] border-[var(--accent-primary)] hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:shadow-lg hover:shadow-[var(--accent-primary)]/20">
                     BOOK A SESSION
                 </button>
-                <p class="mt-2 text-sm text-gray-400">Prefer using Google Form? Click button above to book directly.</p>
-            </div>
+             
         </section>
 
         <!-- About Section -->
@@ -518,7 +517,7 @@
                         <h3 class="text-card-title text-[var(--text-primary)] mb-6">Follow Us</h3>
                         <div class="flex space-x-6">
                             <!-- Instagram icon SVG -->
-                            <a href="[YOUR_INSTAGRAM_LINK]" target="_blank">
+                            <a href="https://www.instagram.com/kodakhotshots_studio/" target="_blank">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                             </a>
                             <!-- TikTok icon SVG -->
@@ -787,9 +786,9 @@
             if (bookSessionButton) {
                 bookSessionButton.addEventListener('click', () => {
                     // Google Form Popup
-                    window.open("https://docs.google.com/forms/d/e/[YOUR_GOOGLE_FORM_LINK]/viewform", "_blank");
+                    window.open("https://forms.gle/iqrjJdejgmqtYniS7", "_blank");
                     // Existing Modal Functionality
-                    showModal('Booking Information', 'Thank you for your interest! Our booking system is currently under development. Please contact us directly via WhatsApp or email.');
+                    showModal('Booking Information', 'Your appointment has be booked, we will contact you shortly to confirm your prefered date and time. Thank you for choosing Kodak Hotshots.');
                 });
             }
 
