@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kodak Hotshots - Capture the Moment</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Premium photography services by Kodak Hotshots for unforgettable memories and professional needs. Book a session today!">
+    <meta name="keywords" content="photography, Kodak Hotshots, event coverage, studio portraits, photo printing, Lagos, Nigeria">
+    <meta name="robots" content="index, follow">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts for Bebas Neue and Inter -->
@@ -353,13 +357,46 @@
         .modal-close-button:hover {
             color: var(--accent-primary);
         }
+
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem 0;
+            }
+            nav {
+                margin-top: 1rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            nav a {
+                margin: 0;
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body class="cinematic-body">
+    <!-- Brand Signature + Top Nav -->
+    <header class="flex items-center justify-between px-8 py-4 bg-black text-white">
+        <div class="text-2xl font-bold tracking-wide">KodakHotShots</div>
+        <nav class="space-x-6 text-sm">
+            <a href="#about" class="hover:text-yellow-500">About</a>
+            <a href="#services" class="hover:text-yellow-500">Services</a>
+            <a href="#work" class="hover:text-yellow-500">Work</a>
+            <a href="#contact" class="hover:text-yellow-500">Contact</a>
+        </nav>
+    </header>
+
     <div class="min-h-screen">
         <!-- Hero Section -->
         <section class="relative h-screen flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 z-0">
+                <!-- Replace with local image: src="path/to/your/hero-image.jpg" -->
                 <img id="hero-image" src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=1440&h=900&fit=crop" alt="Cinematic photography hero" class="w-full h-full object-cover" />
                 <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
             </div>
@@ -374,14 +411,16 @@
                 <button id="book-session-button" class="text-button px-8 py-4 rounded-lg transition-all duration-300 border-2 bg-[var(--accent-primary)] text-[var(--bg-primary)] border-[var(--accent-primary)] hover:bg-[var(--accent-hover)] hover:border-[var(--accent-hover)] hover:shadow-lg hover:shadow-[var(--accent-primary)]/20">
                     BOOK A SESSION
                 </button>
+                <p class="mt-2 text-sm text-gray-400">Prefer using Google Form? Click button above to book directly.</p>
             </div>
         </section>
 
         <!-- About Section -->
-        <section class="py-24 px-8">
+        <section id="about" class="py-24 px-8">
             <div class="max-w-7xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="order-2 md:order-1">
+                        <!-- Replace with local image: src="path/to/your/about-image.jpg" -->
                         <img id="about-image" src="about kodak.jpg" alt="Professional studio setup" class="w-full h-full object-cover rounded-2xl" />
                     </div>
                     
@@ -397,34 +436,42 @@
                             <!-- Features will be dynamically inserted here -->
                         </ul>
                     </div>
-                </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section class="py-24 px-8 bg-[var(--bg-secondary)]">
+        <section id="services" class="py-24 px-8 bg-[var(--bg-secondary)]">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-section-heading text-[var(--text-primary)] text-center mb-16">
                     OUR SIGNATURE SERVICES
                 </h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="services-grid">
-                    <!-- Service cards will be dynamically inserted here -->
+                    <!-- Service cards will be dynamically inserted here with local images -->
                 </div>
             </div>
         </section>
 
         <!-- Featured Work Section -->
-        <section class="py-24 px-8">
+        <section id="work" class="py-24 px-8">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-section-heading text-[var(--text-primary)] text-center mb-16">
                     FEATURED WORK
                 </h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]" id="gallery-grid">
-                    <!-- Gallery images and testimonials will be dynamically inserted here -->
+                    <!-- Gallery images will be dynamically inserted here with local images -->
                 </div>
             </div>
+        </section>
+
+        <!-- CMS Section -->
+        <section class="py-24 px-8 bg-gray-900 text-center">
+            <h2 class="text-3xl mb-6">Content Management System</h2>
+            <p class="mb-4 text-gray-400">Manage all your site content from one place.</p>
+            <a href="[YOUR_CMS_LINK]" target="_blank" class="px-6 py-3 bg-yellow-500 text-black rounded-lg hover:bg-yellow-600 transition">
+                Go to CMS
+            </a>
         </section>
 
         <!-- Equipment & Partners Section -->
@@ -435,13 +482,13 @@
                 </h2>
                 
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center" id="equipment-brands">
-                    <!-- Equipment brand logos will be dynamically inserted here -->
+                    <!-- Equipment brand logos will be dynamically inserted here with local images -->
                 </div>
             </div>
         </section>
 
         <!-- Footer Section -->
-        <footer class="py-16 px-8 border-t border-[var(--borders)]">
+        <footer id="contact" class="py-16 px-8 border-t border-[var(--borders)]">
             <div class="max-w-7xl mx-auto">
                 <div class="grid md:grid-cols-3 gap-12 mb-12">
                     <div>
@@ -453,6 +500,7 @@
                                 <span>WhatsApp: +2348033132953</span>
                             </div>
                             <p>info@kodakhotshots.com</p>
+                            <p>hello@kodakhotshots.com</p>
                             <p>14 Idowu Martins Street<br />Victoria Island, 4th Floor<br />Mega Plaza Shopping Mall<br />Lagos, Nigeria</p>
                         </div>
                     </div>
@@ -470,11 +518,29 @@
                         <h3 class="text-card-title text-[var(--text-primary)] mb-6">Follow Us</h3>
                         <div class="flex space-x-6">
                             <!-- Instagram icon SVG -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            <a href="[YOUR_INSTAGRAM_LINK]" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            </a>
+                            <!-- TikTok icon SVG -->
+                            <a href="[YOUR_TIKTOK_LINK]" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 1 5 5"></path></svg>
+                            </a>
+                            <!-- YouTube icon SVG -->
+                            <a href="[YOUR_YOUTUBE_LINK]" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                            </a>
+                            <!-- Facebook icon SVG -->
+                            <a href="[YOUR_FACEBOOK_LINK]" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                            </a>
                             <!-- Camera icon SVG -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
-                            <!-- Linkedin icon SVG -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            <a href="[YOUR_PORTFOLIO_LINK]" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                            </a>
+                            <!-- LinkedIn icon SVG -->
+                            <a href="[YOUR_LINKEDIN_LINK]" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] cursor-pointer transition-colors"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -497,6 +563,13 @@
         </div>
     </div>
 
+    <!-- SEO Sitemap (Add your sitemap URL here) -->
+    <!-- <link rel="sitemap" href="path/to/sitemap.xml"> -->
+    <!-- Add robots.txt in root directory with: -->
+    <!-- User-agent: * -->
+    <!-- Disallow: /private/ -->
+    <!-- Sitemap: path/to/sitemap.xml -->
+
     <script type="module">
         // Utility function to combine class names (simplified version of `cn` from utils.ts)
         function cn(...inputs) {
@@ -509,52 +582,27 @@
         /**
          * Handles image loading with a fallback for errors.
          * @param {HTMLImageElement} imgElement - The image element to apply the fallback to.
-         * @param {string} originalSrc - The original source URL of the image.
+         * @param {string} originalSrc - The original source URL or local path of the image.
          */
         function applyImageWithFallback(imgElement, originalSrc) {
             imgElement.src = originalSrc;
             imgElement.onerror = () => {
                 imgElement.src = ERROR_IMG_SRC;
                 imgElement.alt = "Error loading image";
-                // Optionally, you can add a data attribute to keep the original URL
                 imgElement.dataset.originalUrl = originalSrc;
             };
         }
 
-        // Data arrays (from App.tsx)
+        // Data arrays (from App.tsx) - Replace image paths with local files
         const services = [
-            {
-                name: "Exclusive Event Coverage",
-                image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop"
-            },
-            {
-                name: "Elite Passport Photography",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
-            },
-            {
-                name: "Luxe Studio Portraits",
-                image: "https://images.unsplash.com/photo-1494790108755-2616c0763d84?w=800&h=600&fit=crop"
-            },
-            {
-                name: "Premium Framing Creations",
-                image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=600&fit=crop"
-            },
-            {
-                name: "Masterclass Photography Training",
-                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-            },
-            {
-                name: "Deluxe Photo Book Binding",
-                image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop"
-            },
-            {
-                name: "High-Quality Document Printing",
-                image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=600&fit=crop"
-            },
-            {
-                name: "Professional Photocopy Services",
-                image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop"
-            }
+            { name: "Exclusive Event Coverage", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop" },
+            { name: "Elite Passport Photography", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop" },
+            { name: "Luxe Studio Portraits", image: "https://images.unsplash.com/photo-1494790108755-2616c0763d84?w=800&h=600&fit=crop" },
+            { name: "Premium Framing Creations", image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=600&fit=crop" },
+            { name: "Masterclass Photography Training", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" },
+            { name: "Deluxe Photo Book Binding", image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop" },
+            { name: "High-Quality Document Printing", image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=600&fit=crop" },
+            { name: "Professional Photocopy Services", image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop" }
         ];
 
         const galleryImages = [
@@ -567,26 +615,11 @@
         ];
 
         const equipmentBrands = [
-            {
-                name: "Canon",
-                logo: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=200&h=100&fit=crop"
-            },
-            {
-                name: "Sony",
-                logo: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=200&h=100&fit=crop"
-            },
-            {
-                name: "Profoto",
-                logo: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=200&h=100&fit=crop"
-            },
-            {
-                name: "Hasselblad",
-                logo: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=100&fit=crop"
-            },
-            {
-                name: "Leica",
-                logo: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=200&h=100&fit=crop"
-            }
+            { name: "Canon", logo: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=200&h=100&fit=crop" },
+            { name: "Sony", logo: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=200&h=100&fit=crop" },
+            { name: "Profoto", logo: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=200&h=100&fit=crop" },
+            { name: "Hasselblad", logo: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&h=100&fit=crop" },
+            { name: "Leica", logo: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=200&h=100&fit=crop" }
         ];
 
         // Function to create an icon list item (adapted from App.tsx)
@@ -607,7 +640,8 @@
             div.innerHTML = `
                 <div class="bg-[var(--bg-secondary)] rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--accent-primary)]/10 hover:scale-105">
                     <div class="aspect-[4/3] overflow-hidden">
-                        <img src="" alt="${serviceName}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 service-card-image" />
+                        <!-- Replace with local image: src="path/to/your/service-image.jpg" -->
+                        <img src="${imageUrl}" alt="${serviceName} service" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 service-card-image" />
                     </div>
                     <div class="p-6">
                         <h3 class="text-card-title text-[var(--text-primary)] text-center">
@@ -629,7 +663,8 @@
             div.className = "flex flex-col items-center space-y-4 group";
             div.innerHTML = `
                 <div class="w-32 h-20 bg-[var(--bg-primary)] rounded-lg p-4 flex items-center justify-center overflow-hidden group-hover:bg-[var(--borders)] transition-colors duration-300">
-                    <img src="" alt="${brandName} logo" class="w-full h-full object-contain filter grayscale opacity-60 group-hover:opacity-80 transition-opacity duration-300 equipment-logo" />
+                    <!-- Replace with local image: src="path/to/your/brand-logo.jpg" -->
+                    <img src="${logoUrl}" alt="${brandName} logo" class="w-full h-full object-contain filter grayscale opacity-60 group-hover:opacity-80 transition-opacity duration-300 equipment-logo" />
                 </div>
                 <span class="text-small text-[var(--text-secondary)] group-hover:text-[var(--accent-primary)] transition-colors duration-300">
                     ${brandName}
@@ -676,7 +711,7 @@
                     { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--accent-primary)]"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>`, text: "State-of-the-Art Equipment" },
                     { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--accent-primary)]"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`, text: "Masters of Light and Composition" },
                     { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--accent-primary)]"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>`, text: "Bespoke Client Experience" },
-                    { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--accent-primary)]"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>`, text: "Award-Winning Creative Team" }
+                    { icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--accent-primary)]"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>`, text: "Award-Winning Creative Team" }
                 ];
                 features.forEach(feature => {
                     aboutFeaturesList.appendChild(createFeatureListItem(feature.icon, feature.text));
@@ -686,7 +721,6 @@
             // Apply fallback to about image
             const aboutImage = document.getElementById('about-image');
             if (aboutImage) {
-                // The src for the about image is now a local path
                 applyImageWithFallback(aboutImage, aboutImage.src);
             }
 
@@ -707,7 +741,8 @@
                         index === 1 || index === 4 ? 'row-span-2' : ''
                     }`;
                     div.innerHTML = `
-                        <img src="" alt="Featured work ${index + 1}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 gallery-image" />
+                        <!-- Replace with local image: src="path/to/your/gallery-image-${index + 1}.jpg" -->
+                        <img src="${image}" alt="Featured work ${index + 1}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 gallery-image" />
                         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
                     `;
                     const imgElement = div.querySelector('.gallery-image');
@@ -751,6 +786,9 @@
             const bookSessionButton = document.getElementById('book-session-button');
             if (bookSessionButton) {
                 bookSessionButton.addEventListener('click', () => {
+                    // Google Form Popup
+                    window.open("https://docs.google.com/forms/d/e/[YOUR_GOOGLE_FORM_LINK]/viewform", "_blank");
+                    // Existing Modal Functionality
                     showModal('Booking Information', 'Thank you for your interest! Our booking system is currently under development. Please contact us directly via WhatsApp or email.');
                 });
             }
